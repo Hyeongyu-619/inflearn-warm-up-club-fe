@@ -1,0 +1,94 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Arial", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #8fbc8f;
+}
+
+.App {
+  text-align: center;
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 100%;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #2e8b57;
+}
+
+.scoreboard {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.scoreboard div {
+  font-size: 1.3rem;
+  color: #2e8b57;
+}
+
+.selection {
+  margin-bottom: 30px;
+}
+
+.selection button {
+  font-size: 1.2rem;
+  padding: 10px 30px;
+  margin: 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: #3cb371;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.selection button:hover {
+  background-color: #2e8b57;
+  transform: scale(1.05);
+}
+
+.result {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #006400;
+  margin-top: 20px;
+  background-color: #f0f0f0;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.restart {
+  margin-top: 30px;
+}
+
+.restart button {
+  font-size: 1rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: #32cd32;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.restart button:hover {
+  background-color: #228b22;
+  transform: scale(1.05);
+}
