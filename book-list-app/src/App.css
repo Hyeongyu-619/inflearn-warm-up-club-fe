@@ -1,0 +1,108 @@
+.app-container {
+  width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #f0fff0;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+h1 {
+  font-size: 3rem;
+  color: #2f855a;
+  margin-bottom: 30px;
+}
+
+.notification {
+  background-color: #48bb78;
+  color: white;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  font-size: 1.2rem;
+}
+
+.notification-delete {
+  background-color: #e53e3e;
+  color: white;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  font-size: 1.2rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+input {
+  flex: 1;
+  padding: 15px;
+  border: 2px solid #38a169;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  border-color: #2f855a; /* 포커스 시 진한 초록색 */
+  outline: none;
+}
+
+button {
+  padding: 15px;
+  background-color: #2f855a;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+button:hover:enabled {
+  background-color: #276749;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th,
+td {
+  padding: 15px;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #38a169;
+  color: white;
+}
+
+td {
+  background-color: white;
+  color: #2d3748;
+}
+
+td button {
+  background-color: #e53e3e;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+td button:hover {
+  background-color: #c53030;
+}
