@@ -1,4 +1,3 @@
-// App.tsx
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
@@ -27,10 +26,17 @@ const App: React.FC = () => {
   const [profile, setProfile] = useState<UserProfile | null>(null);
   const [repos, setRepos] = useState<Repository[]>([]);
 
+  const GITHUB_TOKEN = process.env.REACT_APP_GITHUB_TOKEN;
+  console.log(GITHUB_TOKEN);
+
   useEffect(() => {
     if (username) {
       axios
-        .get(`https://api.github.com/users/${username}`)
+        .get(`https://api.github.com/users/${username}`, {
+          headers: {
+            Authorization: `token ${GITHUB_TOKEN}`,
+          },
+        })
         .then((response) => {
           setProfile(response.data);
         })
@@ -39,7 +45,11 @@ const App: React.FC = () => {
         });
 
       axios
-        .get(`https://api.github.com/users/${username}/repos`)
+        .get(`https://api.github.com/users/${username}/repos`, {
+          headers: {
+            Authorization: `token ${GITHUB_TOKEN}`,
+          },
+        })
         .then((response) => {
           setRepos(response.data);
         })
@@ -47,7 +57,7 @@ const App: React.FC = () => {
           setRepos([]);
         });
     }
-  }, [username]);
+  }, [GITHUB_TOKEN, username]);
 
   return (
     <div className="app-container">
@@ -62,24 +72,26 @@ const App: React.FC = () => {
         <div className="profile">
           <img src={profile.avatar_url} alt={profile.login} />
           <h2>{profile.name}</h2>
-          <p>
-            <strong>Company:</strong> {profile.company || "N/A"}
-          </p>
-          <p>
-            <strong>Blog:</strong> <a href={profile.blog}>{profile.blog}</a>
-          </p>
-          <p>
-            <strong>Location:</strong> {profile.location || "N/A"}
-          </p>
-          <p>
-            <strong>Public Repos:</strong> {profile.public_repos}
-          </p>
-          <p>
-            <strong>Followers:</strong> {profile.followers}
-          </p>
-          <p>
-            <strong>Following:</strong> {profile.following}
-          </p>
+          <div className="info-section">
+            <p>
+              <strong>Company:</strong> {profile.company || "N/A"}
+            </p>
+            <p>
+              <strong>Blog:</strong> <a href={profile.blog}>{profile.blog}</a>
+            </p>
+            <p>
+              <strong>Location:</strong> {profile.location || "N/A"}
+            </p>
+            <p>
+              <strong>Public Repos:</strong> {profile.public_repos}
+            </p>
+            <p>
+              <strong>Followers:</strong> {profile.followers}
+            </p>
+            <p>
+              <strong>Following:</strong> {profile.following}
+            </p>
+          </div>
         </div>
       )}
 
@@ -95,9 +107,11 @@ const App: React.FC = () => {
               >
                 {repo.name}
               </a>
-              <span>Stars: {repo.stargazers_count}</span>
-              <span>Watchers: {repo.watchers_count}</span>
-              <span>Forks: {repo.forks_count}</span>
+              <div className="repo-info">
+                <span>Stars: {repo.stargazers_count}</span>
+                <span>Watchers: {repo.watchers_count}</span>
+                <span>Forks: {repo.forks_count}</span>
+              </div>
             </div>
           ))}
         </div>
