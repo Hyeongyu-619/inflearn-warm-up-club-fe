@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import "./App.css";
 
 const INITIAL_TIME = 20;
@@ -35,6 +35,56 @@ function App() {
   const [totalErrors, setTotalErrors] = useState(0);
   const [totalTypedCharacters, setTotalTypedCharacters] = useState(0);
 
+  // calculateResults를 useCallback으로 감싸기
+  const calculateResults = useCallback(() => {
+    setIsTestRunning(false);
+    setIsTestCompleted(true);
+    const elapsedTime = INITIAL_TIME - time;
+    if (elapsedTime > 0) {
+      const typedCharacters = totalTypedCharacters;
+      const calculatedCpm = Math.round((typedCharacters / elapsedTime) * 60);
+      const calculatedWpm = Math.round(
+        typedCharacters / 5 / (elapsedTime / 60)
+      );
+
+      setCpm(calculatedCpm);
+      setWpm(calculatedWpm);
+    }
+  }, [time, totalTypedCharacters]);
+
+  const handleNextSentence = useCallback(() => {
+    setTotalErrors(totalErrors + errors);
+    if (currentSentenceIndex < 1) {
+      setCurrentSentenceIndex(currentSentenceIndex + 1);
+      setCurrentSentence(sentenceList[1]);
+      setUserInput("");
+      setTime(INITIAL_TIME);
+      setErrors(0);
+      setAccuracy(100);
+    } else {
+      calculateResults();
+    }
+  }, [
+    errors,
+    currentSentenceIndex,
+    sentenceList,
+    totalErrors,
+    calculateResults,
+  ]);
+
+  const calculateErrorsAndAccuracy = useCallback(() => {
+    let errorCount = 0;
+    for (let i = 0; i < userInput.length; i++) {
+      if (userInput[i] !== currentSentence[i]) {
+        errorCount++;
+      }
+    }
+    const accuracyValue =
+      ((userInput.length - errorCount) / currentSentence.length) * 100;
+    setErrors(errorCount);
+    setAccuracy(Math.max(0, Math.floor(accuracyValue)));
+  }, [userInput, currentSentence]);
+
   useEffect(() => {
     if (isTestRunning && time > 0) {
       const timer = setTimeout(() => setTime(time - 1), 1000);
@@ -42,13 +92,13 @@ function App() {
     } else if (time === 0) {
       handleNextSentence();
     }
-  }, [time, isTestRunning]);
+  }, [time, isTestRunning, handleNextSentence]);
 
   useEffect(() => {
     if (userInput) {
       calculateErrorsAndAccuracy();
     }
-  }, [userInput]);
+  }, [userInput, calculateErrorsAndAccuracy]);
 
   const startGame = () => {
     const randomSentences = getRandomSentences();
@@ -74,54 +124,6 @@ function App() {
     if (e.key === "Enter") {
       handleNextSentence();
     }
-  };
-
-  const calculateErrorsAndAccuracy = () => {
-    let errorCount = 0;
-    for (let i = 0; i < userInput.length; i++) {
-      if (userInput[i] !== currentSentence[i]) {
-        errorCount++;
-      }
-    }
-
-    const accuracyValue =
-      ((userInput.length - errorCount) / currentSentence.length) * 100;
-    setErrors(errorCount);
-    setAccuracy(Math.max(0, Math.floor(accuracyValue)));
-  };
-
-  const calculateWpmCpm = () => {
-    const elapsedTime = INITIAL_TIME - time;
-    if (elapsedTime > 0) {
-      const typedCharacters = totalTypedCharacters;
-      const calculatedCpm = Math.round((typedCharacters / elapsedTime) * 60);
-      const calculatedWpm = Math.round(
-        typedCharacters / 5 / (elapsedTime / 60)
-      );
-
-      setCpm(calculatedCpm);
-      setWpm(calculatedWpm);
-    }
-  };
-
-  const handleNextSentence = () => {
-    setTotalErrors(totalErrors + errors);
-    if (currentSentenceIndex < 1) {
-      setCurrentSentenceIndex(currentSentenceIndex + 1);
-      setCurrentSentence(sentenceList[1]);
-      setUserInput("");
-      setTime(INITIAL_TIME);
-      setErrors(0);
-      setAccuracy(100);
-    } else {
-      calculateResults();
-    }
-  };
-
-  const calculateResults = () => {
-    setIsTestRunning(false);
-    setIsTestCompleted(true);
-    calculateWpmCpm();
   };
 
   const restartGame = () => {
