@@ -1,0 +1,33 @@
+.movie-detail-page {
+  padding: 80px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.movie-detail-page h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.movie-detail-page img {
+  max-width: 100%;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.movie-detail-page p {
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.movie-detail-page span {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #1f80e0;
+}

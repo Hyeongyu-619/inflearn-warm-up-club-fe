@@ -1,0 +1,39 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: rgba(28, 28, 28, 0.8);
+}
+
+.logo {
+  height: 50px;
+  margin-left: 20px;
+}
+
+.profile-section {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.profile-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-left: 10px;
+}
+
+.logout-btn,
+.login-btn {
+  background-color: #1f80e0;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+}

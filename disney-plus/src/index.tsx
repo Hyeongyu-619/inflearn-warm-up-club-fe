@@ -1,24 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
+import { BrowserRouter as Router } from "react-router-dom";
 import App from "./App";
-import { BrowserRouter } from "react-router-dom";
-import { GoogleOAuthProvider } from "@react-oauth/google";
-
-const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID || "";
+import "./index.css";
 
 const rootElement = document.getElementById("root");
-
 if (rootElement) {
   const root = ReactDOM.createRoot(rootElement);
   root.render(
-    <BrowserRouter>
-      {/* GoogleOAuthProvider로 감싸서 구글 인증 처리 */}
-      <GoogleOAuthProvider clientId={clientId}>
+    <React.StrictMode>
+      <Router>
         <App />
-      </GoogleOAuthProvider>
-    </BrowserRouter>
+      </Router>
+    </React.StrictMode>
   );
-} else {
-  console.error("Root element not found");
 }
