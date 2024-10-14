@@ -17,7 +17,10 @@ const Header: React.FC = () => {
         {isLoggedIn && user ? (
           <>
             <img
-              src={user.profileImage || "/path/to/default-profile.png"}
+              src={
+                user.profileImage ||
+                `${process.env.PUBLIC_URL}/assets/images/default-profile.png`
+              }
               alt="프로필"
               className="profile-image"
             />
