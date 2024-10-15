@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 
 interface HeaderProps {
@@ -6,17 +6,7 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ onSearch }) => {
-  const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate(); // React Router의 useNavigate 훅 사용
-
-  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(event.target.value);
-  };
-
-  const handleSearchSubmit = (event: React.FormEvent) => {
-    event.preventDefault();
-    onSearch(searchQuery);
-  };
 
   const handleLogoClick = () => {
     navigate("/"); // 로고 클릭 시 메인 페이지로 이동
