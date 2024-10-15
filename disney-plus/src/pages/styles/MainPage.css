@@ -1,27 +1,23 @@
 .main-page {
-  background-color: #100e29;
+  background: url("../../assets/images/background-image.jpg") no-repeat center
+    center fixed;
+  background-size: cover;
   color: white;
-  padding: 80px 20px;
-}
-
-.banner img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  margin-bottom: 40px;
+  padding: 0;
+  margin: 0;
 }
 
 .movie-row {
-  margin: 30px 0; /* 영화 리스트 간의 간격을 넓힘 */
+  margin: 30px 0;
 }
 
 .movie-row h2 {
-  font-size: 2rem; /* 제목 크기를 크게 조정 */
+  font-size: 2rem;
   margin-bottom: 15px;
 }
 
 .movie-row__poster {
-  max-height: 300px; /* 포스터 최대 높이를 늘림 */
+  max-height: 300px;
   object-fit: cover;
   border-radius: 10px;
   transition: transform 0.3s ease;
@@ -39,7 +35,7 @@
 }
 
 .search-bar input {
-  width: 50%; /* 검색창 너비 조정 */
+  width: 50%;
   padding: 12px;
   border-radius: 25px;
   border: none;
@@ -54,11 +50,16 @@
 
 .banner {
   position: relative;
-  height: 448px;
-  color: white;
-  object-fit: contain;
+  top: 0; /* 헤더 바로 아래에 배너가 위치하도록 설정 */
+  left: 0; /* 왼쪽 공백 제거 */
+  width: 100vw; /* 화면 너비에 맞추기 위해 100vw 사용 */
+  height: 70vh; /* 배너 높이를 적절히 설정 */
   background-size: cover;
-  background-position: center center;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0; /* 외부 여백 제거 */
+  padding: 0; /* 내부 여백 제거 */
+  z-index: 0; /* 배너가 헤더 바로 아래에 위치 */
 }
 
 .banner__contents {

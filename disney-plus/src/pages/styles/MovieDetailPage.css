@@ -33,8 +33,8 @@
 }
 
 .modal-content {
-  background-color: rgba(0, 0, 0, 0.8); /* 모달 배경을 반투명 검정색으로 수정 */
-  color: white; /* 텍스트 색상을 흰색으로 수정 */
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
   padding: 20px;
   border-radius: 10px;
   text-align: center;
@@ -43,11 +43,11 @@
 }
 
 .modal-content h2 {
-  color: #1f80e0; /* 영화 제목 색상은 강조하기 위해 파란색 */
+  color: #1f80e0;
 }
 
 .modal-content p {
-  color: #ccc; /* 설명 텍스트는 회색으로 수정 */
+  color: #ccc;
 }
 
 .modal-content span {

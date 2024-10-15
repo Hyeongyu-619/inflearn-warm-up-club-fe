@@ -1,38 +1,40 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useAuth } from "../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 import "./styles/Header.css";
+import logo from "../assets/images/disney-logo.svg";
 
 const Header: React.FC = () => {
   const { isLoggedIn, logout, user } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate("/login");
+  };
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      navigate("/login");
+    }
+  }, [isLoggedIn, navigate]);
 
   return (
     <header className="header">
-      <img
-        src={`${process.env.PUBLIC_URL}/assets/images/disney-logo.jpg`}
-        alt="Disney+"
-        className="logo"
-      />
-
+      <img src={logo} alt="Disney+" className="logo" width={80} />
       <div className="profile-section">
         {isLoggedIn && user ? (
           <>
             <img
-              src={
-                user.profileImage ||
-                `${process.env.PUBLIC_URL}/assets/images/default-profile.png`
-              }
+              src={user.profileImage || "/path/to/default-profile.png"}
               alt="프로필"
               className="profile-image"
             />
-            <button onClick={logout} className="logout-btn">
-              로그아웃
+            <button onClick={handleLogout} className="logout-btn">
+              Logout
             </button>
           </>
-        ) : (
-          <a href="/login" className="login-btn">
-            로그인
-          </a>
-        )}
+        ) : null}
       </div>
     </header>
   );

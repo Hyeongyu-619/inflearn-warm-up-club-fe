@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import SearchBar from "../components/SearchBar";
 import MovieRow from "../components/MovieRow";
-import Banner from "../components/Banner"; // 배너 추가
+import Banner from "../components/Banner";
 import "./styles/MainPage.css";
+import Header from "../components/Header";
 
 const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
 
@@ -65,7 +66,8 @@ const MainPage: React.FC = () => {
 
   return (
     <div className="main-page">
-      <Banner /> {/* 배너 추가 */}
+      <Header />
+      <Banner />
       <SearchBar onSearch={handleSearch} />
       {searchResults.length > 0 && (
         <MovieRow title="검색 결과" movies={searchResults} />

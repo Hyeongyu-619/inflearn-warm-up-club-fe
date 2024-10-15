@@ -1,10 +1,5 @@
 import React, { useEffect } from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  useLocation,
-} from "react-router-dom";
+import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import MainPage from "./pages/MainPage";
 import MovieDetailPage from "./pages/MovieDetailPage";
 import LoginPage from "./pages/LoginPage";
@@ -14,6 +9,7 @@ import "./App.css";
 const App: React.FC = () => {
   const { isLoggedIn } = useAuth();
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
@@ -49,10 +45,19 @@ const App: React.FC = () => {
     localStorage.setItem("token", data.access_token);
   };
 
+  useEffect(() => {
+    if (!isLoggedIn) {
+      navigate("/login");
+    } else {
+      navigate("/");
+    }
+  }, [isLoggedIn, navigate]);
+
   return (
     <Routes>
       <Route path="/" element={isLoggedIn ? <MainPage /> : <LoginPage />} />
       <Route path="/movie/:id" element={<MovieDetailPage />} />
+      <Route path="/login" element={<LoginPage />} />
     </Routes>
   );
 };
