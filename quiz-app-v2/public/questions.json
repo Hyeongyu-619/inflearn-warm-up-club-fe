@@ -1,0 +1,68 @@
+{
+  "korean": [
+    {
+      "question": "다음 중 과일이 아닌 것은?",
+      "options": ["사과", "망고", "바나나", "연필"],
+      "correctAnswer": 3
+    },
+    {
+      "question": "다음 중 동물이 아닌 것은?",
+      "options": ["고양이", "강아지", "기차", "토끼"],
+      "correctAnswer": 2
+    },
+    {
+      "question": "다음 중 색깔이 아닌 것은?",
+      "options": ["빨강", "노랑", "파랑", "사과"],
+      "correctAnswer": 3
+    },
+    {
+      "question": "다음 중 도구가 아닌 것은?",
+      "options": ["망치", "못", "연필", "톱"],
+      "correctAnswer": 2
+    }
+  ],
+  "math": [
+    {
+      "question": "1+1은?",
+      "options": ["1", "2", "3", "4"],
+      "correctAnswer": 1
+    },
+    {
+      "question": "2+2는?",
+      "options": ["2", "3", "4", "5"],
+      "correctAnswer": 2
+    },
+    {
+      "question": "3+3은?",
+      "options": ["5", "6", "7", "8"],
+      "correctAnswer": 1
+    },
+    {
+      "question": "4+4는?",
+      "options": ["7", "8", "9", "10"],
+      "correctAnswer": 1
+    }
+  ],
+  "alphabet": [
+    {
+      "question": "알파벳 A의 다음은?",
+      "options": ["B", "C", "D", "E"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "알파벳 Z의 이전은?",
+      "options": ["X", "Y", "V", "W"],
+      "correctAnswer": 1
+    },
+    {
+      "question": "알파벳 L의 다음은?",
+      "options": ["M", "N", "O", "P"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "알파벳 G의 다음은?",
+      "options": ["H", "I", "J", "K"],
+      "correctAnswer": 0
+    }
+  ]
+}
