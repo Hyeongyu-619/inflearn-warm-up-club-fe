@@ -1,0 +1,85 @@
+.productsContainer {
+  padding: 20px;
+  background-color: #f4f4f4;
+}
+
+.title {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.productCard {
+  border: 1px solid #ddd;
+  padding: 20px;
+  width: 250px;
+  text-align: center;
+  background-color: white;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.productCard:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.productsGrid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.productImage {
+  width: 200px;
+  height: 300px;
+  object-fit: contain;
+  margin: 0 auto 10px;
+}
+
+.button {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+.categorySelect {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.categoryButton {
+  padding: 10px 20px;
+  margin: 5px;
+  background-color: #333;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.categoryButton.selected {
+  background-color: #555;
+}
+
+.cartCount {
+  margin-left: 5px;
+  font-weight: bold;
+  color: red;
+}

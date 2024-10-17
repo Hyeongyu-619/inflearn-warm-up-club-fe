@@ -1,0 +1,59 @@
+.productDetailContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  gap: 40px;
+  background-color: #f4f4f4;
+}
+
+.productImageContainer {
+  flex: 1;
+  text-align: center;
+}
+
+.productImage {
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.productInfo {
+  flex: 1;
+  text-align: left;
+}
+
+.productTitle {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.productPrice {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.productDescription {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #666;
+}
+
+.buttonContainer {
+  display: flex;
+  gap: 20px;
+}
+
+.button {
+  background-color: #333;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 5px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #555;
+}
